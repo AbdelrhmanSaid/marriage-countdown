@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import { useCountDown } from './composables/useCountDown'
 import CountdownBlock from './components/CountdownBlock.vue'
 
-const targetDate = new Date('Oct 10, 2024 18:30:00').getTime()
+const targetDate = new Date('Oct 10, 2024 17:00:00').getTime()
 const { countDownTime } = useCountDown(targetDate)
 
 const particlesOptions = {
@@ -34,8 +34,7 @@ const particlesOptions = {
       random: true,
     },
     enable: false,
-    line_linked: {
-    },
+    line_linked: {},
     move: {
       speed: 2,
       enable: true,
@@ -70,6 +69,7 @@ const particlesOptions = {
 
     <div
       class="flex flex-col items-center justify-center w-full h-full gap-8 sm:gap-16"
+      v-if="countDownTime"
     >
       <div class="flex justify-center gap-3 sm:gap-8">
         <CountdownBlock
@@ -93,6 +93,10 @@ const particlesOptions = {
           pluralLabel="Seconds"
         />
       </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center w-full h-full" v-else>
+      <h1 class="text-4xl font-bold text-pink-900">Officially Married!</h1>
     </div>
   </div>
 </template>
