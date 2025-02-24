@@ -69,7 +69,7 @@ const particlesOptions = {
 
     <div
       class="flex flex-col items-center justify-center w-full h-full gap-8 sm:gap-16"
-      v-if="countDownTime"
+      v-if="!countDownTime.finished"
     >
       <div class="flex justify-center gap-3 sm:gap-8">
         <CountdownBlock
@@ -96,7 +96,7 @@ const particlesOptions = {
     </div>
 
     <div class="flex flex-col items-center justify-center w-full h-full" v-else>
-      <h1 class="text-4xl font-bold text-pink-900">Officially Married!</h1>
+      <h1 class="text-4xl font-bold text-pink-900">Officially Married 💍</h1>
     </div>
   </div>
 </template>

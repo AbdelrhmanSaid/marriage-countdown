@@ -6,6 +6,7 @@ export function useCountDown(targetDate) {
     hours: 0,
     minutes: 0,
     seconds: 0,
+    finished: false,
   })
 
   const updateCountDown = () => {
@@ -13,7 +14,7 @@ export function useCountDown(targetDate) {
     const distance = targetDate - now
 
     if (distance < 0) {
-      countDownTime.value = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+      countDownTime.value = { days: 0, hours: 0, minutes: 0, seconds: 0, finished: true }
       return
     }
 
